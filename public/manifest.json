@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Sloth Auth V2",
+  "version": "1.0.0",
+  "description": "Your friendly AI Sloth assistant for secure Auth0 authentication.",
+  "action": {
+    "default_popup": "index.html",
+    "default_width": 440,
+    "default_height": 600
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "identity"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

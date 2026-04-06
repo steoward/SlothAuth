@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شخصيات الكسلان - النسخة المحسنة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --sloth-head: #A67B5B;
+            --sloth-light: #EAD8C0;
+            --sloth-dark: #634832;
+            --face-patch: #8D6E63;
+            --claws: #F5F5F5;
+            --nose-simple: #3E2723;
+            --leaf-green: #22C55E;
+        }
+
+        body {
+            background-color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .sloth-card {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        /* Animations */
+        @keyframes head-bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes hand-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        /* Fixed Sleep Bubble - Flying from far away (top right corner area) */
+        @keyframes sleep-bubble-from-far {
+            0% { transform: translate(100px, -50px) scale(0); opacity: 0; }
+            30% { opacity: 0.7; }
+            100% { transform: translate(140px, -120px) scale(1.8); opacity: 0; }
+        }
+
+        /* Improved Eating - Leaf moving to mouth */
+        @keyframes leaf-to-mouth {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(25px, -15px) rotate(10deg); }
+        }
+
+        @keyframes jaw-move {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.3); }
+        }
+
+        @keyframes shy-blush {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+
+        .animate-head { animation: head-bob 3.5s infinite ease-in-out; }
+        .animate-hand { animation: hand-float 2s infinite ease-in-out; }
+        .animate-bubble-far { animation: sleep-bubble-from-far 4s infinite linear; }
+        .animate-leaf-eat { animation: leaf-to-mouth 2s infinite ease-in-out; }
+        .animate-jaw { animation: jaw-move 0.4s infinite ease-in-out; transform-origin: center; }
+        .animate-blush { animation: shy-blush 2s infinite ease-in-out; }
+
+        .sloth-svg {
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.06));
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <svg style="display:none">
+        <symbol id="four-finger-hand" viewBox="0 0 50 50">
+            <rect x="10" y="15" width="30" height="25" rx="12" fill="var(--sloth-head)" />
+            <rect x="12" y="5" width="4" height="12" rx="2" fill="var(--claws)" />
+            <rect x="19" y="3" width="4" height="13" rx="2" fill="var(--claws)" />
+            <rect x="26" y="3" width="4" height="13" rx="2" fill="var(--claws)" />
+            <rect x="33" y="5" width="4" height="12" rx="2" fill="var(--claws)" />
+        </symbol>
+    </svg>
+
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl font-extrabold text-slate-800 mb-3">عالم الكسلان المحدث</h1>
+            <p class="text-lg text-slate-500">تم تعديل مصدر فقاعات النوم وحركة الأكل</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <!-- 1. Waving -->
+            <div class="sloth-card">
+                <h3 class="text-xl font-bold mb-6 text-amber-900">تحية كسلانة</h3>
+                <svg width="180" height="180" viewBox="0 0 200 200" class="sloth-svg">
+                    <g class="animate-head">
+                        <circle cx="100" cy="90" r="48" fill="var(--sloth-head)" />
+                        <circle cx="100" cy="95" r="38" fill="var(--sloth-light)" />
+                        <ellipse cx="82" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <ellipse cx="118" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <circle cx="82" cy="90" r="3.5" fill="var(--sloth-dark)" />
+                        <circle cx="118" cy="90" r="3.5" fill="var(--sloth-dark)" />
+                        <ellipse cx="100" cy="102" rx="7" ry="5" fill="var(--nose-simple)" />
+                        <path d="M 92 115 Q 100 120 108 115" stroke="var(--sloth-dark)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                    </g>
+                    <g class="animate-hand">
+                        <use href="#four-finger-hand" x="140" y="70" width="45" height="45" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- 2. Sleeping (FIXED BUBBLE SOURCE) -->
+            <div class="sloth-card">
+                <h3 class="text-xl font-bold mb-6 text-amber-900">وقت النوم</h3>
+                <svg width="180" height="180" viewBox="0 0 200 200" class="sloth-svg">
+                    <!-- Sloth Head -->
+                    <g class="animate-head">
+                        <circle cx="100" cy="90" r="48" fill="var(--sloth-head)" />
+                        <circle cx="100" cy="95" r="38" fill="var(--sloth-light)" />
+                        <ellipse cx="82" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <ellipse cx="118" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <path d="M 75 90 Q 82 95 89 90" stroke="var(--sloth-dark)" stroke-width="2" fill="none" />
+                        <path d="M 111 90 Q 118 95 125 90" stroke="var(--sloth-dark)" stroke-width="2" fill="none" />
+                        <ellipse cx="100" cy="102" rx="7" ry="5" fill="var(--nose-simple)" />
+                    </g>
+                    <!-- Sleep Bubbles coming from the far distance (not the nose) -->
+                    <g class="animate-bubble-far">
+                        <text x="0" y="0" font-family="Arial" font-size="14" fill="#93C5FD" font-weight="bold">Z</text>
+                        <circle cx="5" cy="5" r="4" fill="#93C5FD" fill-opacity="0.4" />
+                    </g>
+                    <g class="animate-bubble-far" style="animation-delay: 1.5s;">
+                        <text x="10" y="20" font-family="Arial" font-size="18" fill="#60A5FA" font-weight="bold">Z</text>
+                        <circle cx="15" cy="25" r="6" fill="#60A5FA" fill-opacity="0.3" />
+                    </g>
+                </svg>
+                <p class="mt-4 text-xs text-gray-400">الفقاعات تأتي من "عالم الأحلام" البعيد</p>
+            </div>
+
+            <!-- 3. Eating -->
+            <div class="sloth-card">
+                <h3 class="text-xl font-bold mb-6 text-amber-900">وجبة خفيفة</h3>
+                <svg width="180" height="180" viewBox="0 0 200 200" class="sloth-svg">
+                    <g class="animate-head">
+                        <circle cx="100" cy="90" r="48" fill="var(--sloth-head)" />
+                        <circle cx="100" cy="95" r="38" fill="var(--sloth-light)" />
+                        <ellipse cx="82" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <ellipse cx="118" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <circle cx="82" cy="90" r="3.5" fill="var(--sloth-dark)" />
+                        <circle cx="118" cy="90" r="3.5" fill="var(--sloth-dark)" />
+                        <ellipse cx="100" cy="102" rx="7" ry="5" fill="var(--nose-simple)" />
+                        <g class="animate-jaw">
+                            <path d="M 92 118 Q 100 126 108 118" stroke="var(--sloth-dark)" stroke-width="3" fill="none" stroke-linecap="round" />
+                        </g>
+                    </g>
+                    <g class="animate-leaf-eat">
+                        <use href="#four-finger-hand" x="65" y="120" width="40" height="40" />
+                        <path d="M 85 125 Q 100 115 115 125 Q 100 135 85 125" fill="var(--leaf-green)" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- 4. Thumbs Up -->
+            <div class="sloth-card">
+                <h3 class="text-xl font-bold mb-6 text-amber-900">ممتاز!</h3>
+                <svg width="180" height="180" viewBox="0 0 200 200" class="sloth-svg">
+                    <g class="animate-head">
+                        <circle cx="100" cy="90" r="48" fill="var(--sloth-head)" />
+                        <circle cx="100" cy="95" r="38" fill="var(--sloth-light)" />
+                        <ellipse cx="82" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <ellipse cx="118" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <circle cx="82" cy="90" r="3.5" fill="var(--sloth-dark)" />
+                        <circle cx="118" cy="90" r="3.5" fill="var(--sloth-dark)" />
+                        <ellipse cx="100" cy="102" rx="7" ry="5" fill="var(--nose-simple)" />
+                        <path d="M 85 115 Q 100 130 115 115" stroke="var(--sloth-dark)" stroke-width="3" fill="none" stroke-linecap="round" />
+                    </g>
+                    <g class="animate-hand">
+                        <use href="#four-finger-hand" x="145" y="105" width="45" height="45" transform="rotate(-30 167 127)" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- 5. Scratching -->
+            <div class="sloth-card">
+                <h3 class="text-xl font-bold mb-6 text-amber-900">حيرة</h3>
+                <svg width="180" height="180" viewBox="0 0 200 200" class="sloth-svg">
+                    <g style="transform: rotate(-8deg); transform-origin: 100px 90px;">
+                        <circle cx="100" cy="90" r="48" fill="var(--sloth-head)" />
+                        <circle cx="100" cy="95" r="38" fill="var(--sloth-light)" />
+                        <ellipse cx="82" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <ellipse cx="118" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <path d="M 78 88 L 86 94 M 86 88 L 78 94" stroke="var(--sloth-dark)" stroke-width="2" />
+                        <path d="M 114 88 L 122 94 M 122 88 L 114 94" stroke="var(--sloth-dark)" stroke-width="2" />
+                        <ellipse cx="100" cy="102" rx="7" ry="5" fill="var(--nose-simple)" />
+                        <circle cx="100" cy="118" r="4" fill="none" stroke="var(--sloth-dark)" stroke-width="2" />
+                    </g>
+                    <g style="animation: hand-float 0.7s infinite alternate">
+                        <use href="#four-finger-hand" x="80" y="15" width="45" height="45" transform="rotate(180 102 37)" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- 6. Shy/Blushing -->
+            <div class="sloth-card">
+                <h3 class="text-xl font-bold mb-6 text-amber-900">خجول جداً</h3>
+                <svg width="180" height="180" viewBox="0 0 200 200" class="sloth-svg">
+                    <g class="animate-head">
+                        <circle cx="100" cy="90" r="48" fill="var(--sloth-head)" />
+                        <circle cx="100" cy="95" r="38" fill="var(--sloth-light)" />
+                        <ellipse cx="82" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <ellipse cx="118" cy="90" rx="14" ry="18" fill="var(--face-patch)" />
+                        <circle cx="85" cy="95" r="2.5" fill="var(--sloth-dark)" />
+                        <circle cx="115" cy="95" r="2.5" fill="var(--sloth-dark)" />
+                        <circle cx="75" cy="105" r="6" fill="#FB7185" class="animate-blush" />
+                        <circle cx="125" cy="105" r="6" fill="#FB7185" class="animate-blush" />
+                        <ellipse cx="100" cy="102" rx="7" ry="5" fill="var(--nose-simple)" />
+                        <path d="M 95 118 Q 100 122 105 118" stroke="var(--sloth-dark)" stroke-width="2" fill="none" />
+                    </g>
+                    <g style="opacity: 0.8">
+                        <use href="#four-finger-hand" x="40" y="90" width="35" height="35" transform="rotate(20 57 107)" />
+                        <use href="#four-finger-hand" x="125" y="90" width="35" height="35" transform="rotate(-20 142 107)" />
+                    </g>
+                </svg>
+            </div>
+
+        </div>
+
+        <footer class="mt-16 text-center text-slate-400 text-sm pb-10">
+            تصميم نظيف بفقاعات أحلام تطير من بعيد وحركة أكل محسنة.
+        </footer>
+    </div>
+
+</body>
+</html>

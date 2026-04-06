@@ -1,0 +1,1 @@
+console.log("Sloth Auth Content Script Loaded");
